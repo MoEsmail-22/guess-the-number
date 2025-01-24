@@ -166,4 +166,11 @@ h1 {
     margin-top: 3rem;
     margin-bottom: 2rem;
   }
+  input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+ opacity: 1 !important;
+ margin: 0;
+ width: 15px;
+ height: 35px;
+}
 }
