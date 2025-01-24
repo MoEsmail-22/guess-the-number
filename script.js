@@ -1,7 +1,6 @@
 'use strict';
 
 let randomNumber = Number(Math.trunc(Math.random() * 20) + 1);
-// console.log(randomNumber);
 let score = 20;
 let highScore = 0;
 
@@ -11,13 +10,17 @@ const scoreMessage = document.querySelector('.score');
 const hiddenNumber = document.querySelector('.number');
 const checkButton = document.querySelector('.check');
 const againButton = document.querySelector('.again');
+const prompt = document.querySelector('.prompt');
+const overlay = document.querySelector('.overlay');
+const closeButton = document.querySelector('.close');
 
 const check = function () {
   const userInput = Number(document.querySelector('.guess').value);
+
   if (!userInput) {
     message.textContent = 'Enter a number';
   } else if (userInput <= 0 || userInput > 20) {
-    message.textContent = 'Only 1 to 20';
+    message.textContent = 'Only between 1 & 20';
     score--;
     scoreMessage.textContent = score;
   } else if (userInput > randomNumber) {
@@ -39,6 +42,14 @@ const check = function () {
   }
 };
 
+const showPrompt = function () {
+  if (window.innerWidth <= 991 && !localStorage.getItem('promptShown')) {
+    overlay.classList.remove('hidden');
+    prompt.classList.remove('hidden');
+    localStorage.setItem('promptShown', 'true');
+  }
+};
+
 checkButton.addEventListener('click', function () {
   check();
 });
@@ -50,9 +61,23 @@ document.addEventListener('keydown', event => {
 againButton.addEventListener('click', function () {
   score = 20;
   scoreMessage.textContent = score;
-  message.textContent = 'start Guessing...';
+  message.textContent = 'Start Guessing...';
   document.querySelector('.guess').value = '';
   document.querySelector('body').style.backgroundColor = '#222222';
   hiddenNumber.textContent = '?';
   randomNumber = Number(Math.trunc(Math.random() * 20) + 1);
+});
+
+closeButton.addEventListener('click', function () {
+  prompt.classList.add('hidden');
+  overlay.classList.add('hidden');
+});
+
+window.addEventListener('load', function () {
+  showPrompt();
+});
+
+document.querySelector('.close').addEventListener('click', function () {
+  overlay.classList.add('hidden');
+  prompt.classList.add('hidden');
 });
