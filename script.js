@@ -17,7 +17,7 @@ const check = function () {
   if (!userInput) {
     message.textContent = 'Enter a number';
   } else if (userInput <= 0 || userInput > 20) {
-    message.textContent = 'Only between 1 & 20';
+    message.textContent = 'Only 1 to 20';
     score--;
     scoreMessage.textContent = score;
   } else if (userInput > randomNumber) {
