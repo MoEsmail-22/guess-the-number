@@ -17,7 +17,75 @@ body {
   background-color: #222;
 }
 
-/* LAYOUT */
+/* Overlay Styling */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+/* Prompt Styling */
+.prompt {
+  position: fixed;
+  padding: 23px;
+  border-radius: 15px;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 25%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt .close {
+  align-self: flex-end;
+  font-size: 3rem;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 5px;
+  border: none;
+  background-color: #fff;
+  color: #444;
+  cursor: pointer;
+}
+
+.prompt h3 {
+  margin-top: 5px;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.prompt p {
+  font-size: 1.4rem;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+/* Hidden Class */
+.hidden {
+  display: none;
+}
+
+/* Mobile Specific Styling */
+@media (min-width: 991px) {
+  .overlay {
+    display: none;
+  }
+
+  .prompt {
+    display: none;
+  }
+}
+
+/* Layout Styling */
 header {
   position: relative;
   height: 35vh;
@@ -30,6 +98,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  position: relative;
 }
 
 .left {
@@ -44,7 +113,7 @@ main {
   font-size: 2rem;
 }
 
-/* ELEMENTS STYLE */
+/* Element Styling */
 h1 {
   font-size: 4rem;
   text-align: center;
@@ -118,58 +187,56 @@ h1 {
 }
 
 @media (max-width: 991px) {
-  body {
-    overflow: hidden;
-  }
   .again {
     font-size: 15px;
     float: left;
     padding: 10px 15px;
   }
+
   .between {
     font-size: 1rem;
     top: 3rem;
   }
+
   header {
     height: 33vh;
     padding: 10px;
   }
+
   header h1 {
     font-size: 3rem;
     top: 52%;
     line-height: 1.3;
   }
+
   .number {
     font-size: 5rem;
     width: 13rem;
   }
+
   main {
     overflow: hidden;
     flex-direction: column-reverse;
     justify-content: space-evenly;
-    padding-bottom:20px
   }
+
   main .right {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     margin-top: 2rem;
   }
+
   .message {
     margin-bottom: 2rem;
   }
+
   .right p:not(.message) {
-    margin-bottom: 3.2rem;
+    margin-bottom: 4rem;
   }
+
   .right .label-highscore {
     margin-top: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
-  input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
- opacity: 1 !important;
- margin: 0;
- width: 15px;
- height: 35px;
-}
 }
