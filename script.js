@@ -61,7 +61,7 @@ document.querySelector('.close').addEventListener('click', function () {
   document.querySelector('.prompt').classList.add('hidden');
   document.querySelector('.overlay').classList.add('hidden');
 });
-overlay.addEventListener('click', function () {
+prompt.addEventListener('click', function () {
   overlay.classList.add('hidden');
   prompt.classList.add('hidden');
 });
