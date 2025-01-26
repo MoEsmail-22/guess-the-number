@@ -17,7 +17,7 @@ const check = function () {
   if (!userInput) {
     message.textContent = 'Enter a number';
   } else if (userInput <= 0 || userInput > 20) {
-    message.textContent = 'Only between 1 & 20';
+    message.textContent = 'Only 1 to 20';
     score--;
     scoreMessage.textContent = score;
   } else if (userInput > randomNumber) {
@@ -50,7 +50,7 @@ document.addEventListener('keydown', event => {
 againButton.addEventListener('click', function () {
   score = 20;
   scoreMessage.textContent = score;
-  message.textContent = 'start Guessing...';
+  message.textContent = 'start guessing...';
   document.querySelector('.guess').value = '';
   document.querySelector('body').style.backgroundColor = '#222222';
   hiddenNumber.textContent = '?';
